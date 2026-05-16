@@ -1,12 +1,41 @@
 # Examen Final Microservicios:
 
+## Enlaces: 
+-Repositorio de Config Server: https://github.com/mirkocarrrasco/2026_I_SCL_ESTUDIANTES_EXAM/tree/main/infra/config-server-properties
+-Repositorio de todos los microservicios sin seguridad: https://github.com/mirkocarrrasco/2026_I_SCL_ESTUDIANTES_EXAM_SIN-SEGURIDAD
+-Repositorio de todos los microservicios con Seguridad: https://github.com/mirkocarrrasco/2026_I_SCL_ESTUDIANTES_EXAM_CON-SEGURIDAD
+-Repositorio de toda la documentación y evidencias: https://github.com/mirkocarrrasco/2026_I_SCL_ESTUDIANTES_EXAM_DOCUMENTACION_EVIDENCIAS
+-Repositorio Google Drive de los Videos de las pruebas relizadas: https://drive.google.com/drive/folders/165FtG2OmbLATgXboXyHCI6wb2fSA1lQG?usp=drive_link
 
 ## Archivo "infra-compose.yml":
 -El archivo "infra-compose.yml" contiene todas las dependencias necesarias para ejecutar los microservicios.
 -La ubicación del archivo es:
-	WksMicroserviciosSpringCloud_exam_01\docker\infra-compose.yml
+	https://github.com/mirkocarrrasco/2026_I_SCL_ESTUDIANTES_EXAM/tree/main/infra/config-server-properties
 -Ejecutar el siguiente comando para levantar todo:
 docker-compose --profile core --file infra-compose.yml up -d --build 
+
+
+## Para levantar los microservicios desde el IDE considerar los siguientes perfiles:
+-2026_I_SCL_ESTUDIANTES_EXAM_SIN-SEGURIDAD
+   api-order-service-v1              --> dev
+   api-payment-service-v1            --> dev 
+   api-payment-service-v2            --> dev 
+   api-inventory-service-v1          --> dev
+   api-shipment-service-v1           --> dev
+   api-order-orchestrator-service-v1 --> RestClient,dev
+   api-order-query-service-v1        --> dev
+   api-gateway-v1                    --> case1
+-2026_I_SCL_ESTUDIANTES_EXAM_CON-SEGURIDAD
+   api-order-service-v1              --> dev
+   api-payment-service-v1            --> dev 
+   api-payment-service-v2            --> dev 
+   api-inventory-service-v1          --> dev
+   api-shipment-service-v1           --> dev
+   api-order-orchestrator-service-v1 --> RestClient,dev,jwt-local
+   api-order-query-service-v1        --> dev
+   api-gateway-v1                    --> case1
+   api-auth-service-v1               --> dev
+
 
 ## Inserta Data Inicial en la BD:
 -A continuación indico los insert necesarios que se debe agregar a la Base de Datos:
@@ -32,23 +61,9 @@ docker-compose --profile core --file infra-compose.yml up -d --build
 		INSERT INTO shipping_companies (id, name, phone_number, email, web_site) VALUES (1000010, 'UPS', '51960000010', 'customer.service@ups.com', 'https://www.ups.com');
 
 
-## Para levantar los microservicios desde el IDE ver el word 13. Microservicios levantados desde IDE.docx:
-PROYECTOS Y PERFILES LEVANTADOS:
-  api-order-service-v1              --> dev
-  api-payment-service-v1            --> dev 
-  api-payment-service-v2            --> dev 
-  api-inventory-service-v1          --> dev
-  api-shipment-service-v1           --> dev
-  api-order-orchestrator-service-v1 --> RestClient,dev
-  api-order-query-service-v1        --> dev
 
-## Enlaces: 
--Repositorio GITHUB config-server:  https://github.com/mirkocarrrasco/2026_I_SCL_ESTUDIANTES_EXAM/tree/main/infra/config-server-properties
--Repositorio GITHUB Microservicios: https://github.com/mirkocarrrasco/2026_I_SCL_ESTUDIANTES_EXAM_SIN-SEGURIDAD 
--Repositorio GITHUB Documentación y evidencias: https://github.com/mirkocarrrasco/2026_I_SCL_ESTUDIANTES_EXAM_SIN-SEGURIDAD/tree/main/Documentacion
--Repositorio Google Drive con Documentación y evidencias: https://drive.google.com/drive/folders/165FtG2OmbLATgXboXyHCI6wb2fSA1lQG
--Repositorio Google Drive con Video de evidencia de las Pruebas: 
-  -Video Pruebas Flujo Principal.zip:          https://drive.google.com/file/d/1zFckGNMe835VD0fX0tZtFdIfgm5sJkqF/view?usp=drive_link
-  -Video Pruebas Flujo con Compensaciones.zip: https://drive.google.com/file/d/1slZPJVE1hcJMAoPVA95Ot2NSsSGNz4HK/view?usp=drive_link
+
+
+
 
 
