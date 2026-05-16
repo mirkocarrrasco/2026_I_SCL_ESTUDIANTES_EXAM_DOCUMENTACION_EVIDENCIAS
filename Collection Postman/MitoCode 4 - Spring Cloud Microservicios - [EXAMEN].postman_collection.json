@@ -1,0 +1,2474 @@
+{
+  "info": {
+    "_postman_id": "6156cf30-bc1d-4388-9b6f-e4181d580dd8",
+    "name": "MitoCode 4 - Spring Cloud Microservicios - [EXAMEN]",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "11695087"
+  },
+  "item": [
+    {
+      "name": "Spring Boot",
+      "item": [
+        {
+          "name": "API Order Service V1 [EXAMEN]",
+          "item": [
+            {
+              "name": "Create Order",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{accessToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"customer\": {\n        \"id\": 9996,\n        \"name\": \"Andres Gonzales\"\n    },\n    \"warehouse\": {\n        \"id\": 1000,\n        \"name\": \"Centro de Distribución Norte\"\n    },\n    \"total\": 100.45\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:50010/api/v1/orders",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50010",
+                  "path": [
+                    "api",
+                    "v1",
+                    "orders"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update Status",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"status\": \"CONFIRMED\"\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:50010/api/v1/orders/afbf96f5-6e8d-4401-97f4-e7e0462b9045/status",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50010",
+                  "path": [
+                    "api",
+                    "v1",
+                    "orders",
+                    "afbf96f5-6e8d-4401-97f4-e7e0462b9045",
+                    "status"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Cancel Order",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"reason\": \"Test Reason\"\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:50010/api/v1/orders/afbf96f5-6e8d-4401-97f4-e7e0462b9045/cancel",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50010",
+                  "path": [
+                    "api",
+                    "v1",
+                    "orders",
+                    "afbf96f5-6e8d-4401-97f4-e7e0462b9045",
+                    "cancel"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Order Actuator",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"customer\": {\n        \"id\": 9996,\n        \"name\": \"Andres Gonzales\"\n    },\n    \"restaurant\": {\n        \"id\": 888,\n        \"name\": \"Burger Big Boy\"\n    },\n    \"total\": 98.36\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:50010/api/v1/actuator",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50010",
+                  "path": [
+                    "api",
+                    "v1",
+                    "actuator"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "API Order Query Service V1 [EXAMEN]",
+          "item": [
+            {
+              "name": "Get Order By Id",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:50070/api/v1/orders/39effce9-4477-4407-98a0-16b31c57543e",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50070",
+                  "path": [
+                    "api",
+                    "v1",
+                    "orders",
+                    "39effce9-4477-4407-98a0-16b31c57543e"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "API Order Orchestrator Service V1 [EXAM]",
+          "item": [
+            {
+              "name": "Create Order Orchestrator",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{accessToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "",
+                    "type": "text",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"customer\": {\n        \"id\": 7216,\n        \"name\": \"Mirko Carrasco\"\n    },\n    \"warehouse\": {\n        \"id\": 1000,\n        \"name\": \"Burger Big Boy\"\n    },\n    \"card\": {\n        \"id\": 1234\n    },\n    \"items\": [\n        {\n            \"product\": {\n                \"id\": 1,\n                \"name\": \"Prestobarba\"\n            },\n            \"quantity\": 11,\n            \"description\": \"Marca Gillette\"\n        },\n        {\n            \"product\": {\n                \"id\": 2,\n                \"name\": \"Shampoo\"\n            },\n            \"quantity\": 22,\n            \"description\": \"Marca Pantene\"\n        }\n    ],\n    \"shipmentAddress\": {\n        \"address\": \"Calle Los Angeles 706, Departamento 125\",\n        \"latitude\": 9636666,\n        \"longitude\": 698897,\n        \"reference\": \"Al frente del parque de las leyendas puerta 5\"\n    },\n    \"shipmentCompany\": {\n        \"id\": 1000007\n    },\n    \"total\": 200.00\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:50100/api/v1/order-orchestrator/orders",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50100",
+                  "path": [
+                    "api",
+                    "v1",
+                    "order-orchestrator",
+                    "orders"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Start Shipment - Order Orchestrator",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{accessToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:50100/api/v1/order-orchestrator/orders/39effce9-4477-4407-98a0-16b31c57543e/shipment/start",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50100",
+                  "path": [
+                    "api",
+                    "v1",
+                    "order-orchestrator",
+                    "orders",
+                    "39effce9-4477-4407-98a0-16b31c57543e",
+                    "shipment",
+                    "start"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Complete Shipment - Order Orchestrator",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{accessToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:50100/api/v1/order-orchestrator/orders/39effce9-4477-4407-98a0-16b31c57543e/shipment/complete",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50100",
+                  "path": [
+                    "api",
+                    "v1",
+                    "order-orchestrator",
+                    "orders",
+                    "39effce9-4477-4407-98a0-16b31c57543e",
+                    "shipment",
+                    "complete"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Order Orchestrator Actuator",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"customer\": {\n        \"id\": 9996,\n        \"name\": \"Andres Gonzales\"\n    },\n    \"restaurant\": {\n        \"id\": 1000,\n        \"name\": \"Burger Big Boy\"\n    },\n    \"account\": {\n        \"accountId\": \"999-5555-55555-111\"\n    },\n    \"items\": [\n        {\n            \"product\": {\n                \"id\": 956,\n                \"name\": \"Pizza Pepperoni\"\n            },\n            \"quantity\": 2,\n            \"description\": \"Extra queso\"\n        },\n        {\n            \"product\": {\n                \"id\": 985,\n                \"name\": \"Coca Cola\"\n            },\n            \"quantity\": 1,\n            \"description\": \"Sin hielo\"\n        }\n    ],\n    \"deliveryAddress\": {\n        \"address\": \"Calle Los Angeles 706, Departamento 125\",\n        \"latitude\": 9636666,\n        \"longitude\": 698897,\n        \"reference\": \"Al frente del parque de las leyendas puerta 5\"\n    },\n    \"deliveryPerson\": {\n        \"id\": 1000007\n    },\n    \"total\": 98.36\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:50100/api/v1/order-orchestrator/actuator",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50100",
+                  "path": [
+                    "api",
+                    "v1",
+                    "order-orchestrator",
+                    "actuator"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Create Order Orchestrator Actuator Metrics",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://localhost:50100/api/v1/order-orchestrator/actuator/metrics",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50100",
+                  "path": [
+                    "api",
+                    "v1",
+                    "order-orchestrator",
+                    "actuator",
+                    "metrics"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "API Payment Service V1 [EXAMEN]",
+          "item": [
+            {
+              "name": "Check Balance",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{accessToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"orderId\": \"ac70c2f5-9786-43a6-9e2e-bd15004bda87\",\n    \"customerId\": 10,\n    \"cardId\": 653265,\n    \"requiredAmount\": 498\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:50020/api/v1/payments/check-balance",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50020",
+                  "path": [
+                    "api",
+                    "v1",
+                    "payments",
+                    "check-balance"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Charge",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"orderId\": \"ac70c2f5-9786-43a6-9e2e-bd15004bda87\",\n    \"customerId\": 10,\n    \"cardId\": 99999,\n    \"amount\": 200\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:50020/api/v1/payments/charge",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50020",
+                  "path": [
+                    "api",
+                    "v1",
+                    "payments",
+                    "charge"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Refund",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{accessToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"orderId\": \"f14972b8-52b5-4c19-80d8-3f418172ae75\",\n    \"customerId\": 10,\n    \"cardId\": 653265,\n    \"amount\": 499\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:50020/api/v1/payments/refund",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50020",
+                  "path": [
+                    "api",
+                    "v1",
+                    "payments",
+                    "refund"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "API Payment Service V2 [EXAMEN]",
+          "item": [
+            {
+              "name": "Check Balance",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "traceparent",
+                    "value": "testing",
+                    "type": "text",
+                    "disabled": true
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"orderId\": \"f14972b8-52b5-4c19-80d8-3f418172ae75\",\n    \"customerId\": 10,\n    \"cardId\": 653265,\n    \"requiredAmount\": 499\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:50030/api/v2/payments/check-balance",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50030",
+                  "path": [
+                    "api",
+                    "v2",
+                    "payments",
+                    "check-balance"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Charge",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"orderId\": \"f14972b8-52b5-4c19-80d8-3f418172ae75\",\n    \"customerId\": 10,\n    \"cardId\": 999,\n    \"amount\": 10\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:50030/api/v2/payments/charge",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50030",
+                  "path": [
+                    "api",
+                    "v2",
+                    "payments",
+                    "charge"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Chaos Delay",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"enabled\": false,\n    \"type\": \"ERROR\",\n    \"delayMs\": 10000,\n    \"failTimes\": 0\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:50030/api/v2/payments/chaos",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50030",
+                  "path": [
+                    "api",
+                    "v2",
+                    "payments",
+                    "chaos"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "API Inventario Service V1 [EXAMEN]",
+          "item": [
+            {
+              "name": "Reserve Order",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"orderId\": \"11111112-52b5-4c19-80d8-3f418172ae75\",\n    \"customerId\": 9996,\n    \"items\": [\n      {\n        \"productId\": 956,\n        \"productName\": \"Jabon\",\n        \"quantity\": 10,\n        \"description\": \"Marca Protex\"\n      },\n      {\n        \"productId\": 985,\n        \"productName\": \"Crema Dental\",\n        \"quantity\": 20,\n        \"description\": \"Marca Kolinos\"\n      }\n    ]\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:50040/api/v1/inventories/2000/orders/reserve",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50040",
+                  "path": [
+                    "api",
+                    "v1",
+                    "inventories",
+                    "2000",
+                    "orders",
+                    "reserve"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Release Order",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"orderId\": \"11111112-52b5-4c19-80d8-3f418172ae75\"\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:50040/api/v1/inventories/2000/orders/release",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50040",
+                  "path": [
+                    "api",
+                    "v1",
+                    "inventories",
+                    "2000",
+                    "orders",
+                    "release"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "API Shipment Service V1 [EXAMEN]",
+          "item": [
+            {
+              "name": "Assign Courier",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"orderId\": \"c12342b9-52b5-4c19-80d8-3f418172ae75\",\n    \"shipmentAddress\": {\n        \"address\": \"Calle Uno\",\n        \"latitude\": 154564654,\n        \"longitude\": 154564654,\n        \"reference\": \"Cerca al parque de las aguas\"\n    },\n    \"shipmentCompany\": {\n        \"id\": 1000005\n    }\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:50060/api/v1/shipment/assign-courier",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50060",
+                  "path": [
+                    "api",
+                    "v1",
+                    "shipment",
+                    "assign-courier"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Release Courier",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"orderId\": \"c12342b9-52b5-4c19-80d8-3f418172ae75\"\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:50060/api/v1/shipment/release-courier",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50060",
+                  "path": [
+                    "api",
+                    "v1",
+                    "shipment",
+                    "release-courier"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Start Delivery",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:50060/api/v1/shipment/c12342b9-52b5-4c19-80d8-3f418172ae75/start",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50060",
+                  "path": [
+                    "api",
+                    "v1",
+                    "shipment",
+                    "c12342b9-52b5-4c19-80d8-3f418172ae75",
+                    "start"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Complete Delivery",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "http://localhost:50060/api/v1/shipment/c12342b9-52b5-4c19-80d8-3f418172ae75/complete",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50060",
+                  "path": [
+                    "api",
+                    "v1",
+                    "shipment",
+                    "c12342b9-52b5-4c19-80d8-3f418172ae75",
+                    "complete"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "API VISA [EXAMEN]",
+          "item": [
+            {
+              "name": "Check Balance [TRUE response]",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"accountId\": \"999-5555-55555-777\",\n    \"requiredAmount\": 200\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:52010/api/visa/account/check-balance",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "52010",
+                  "path": [
+                    "api",
+                    "visa",
+                    "account",
+                    "check-balance"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Check Balance [FALSE response]",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"accountId\": \"999-5555-55555-222\",\n    \"requiredAmount\": 700\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://localhost:52010/api/visa/account/check-balance",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "52010",
+                  "path": [
+                    "api",
+                    "visa",
+                    "account",
+                    "check-balance"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Charge",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"accountId\": \"999-5555-55555-111\",\n    \"amount\": 200\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:52010/api/visa/account/charge",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "52010",
+                  "path": [
+                    "api",
+                    "visa",
+                    "account",
+                    "charge"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Chaos - NONE",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"enabled\": false,\n    \"type\": \"NONE\",\n    \"delayMs\": 0,\n    \"failTimes\": 0\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:52010/api/visa/account/chaos",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "52010",
+                  "path": [
+                    "api",
+                    "visa",
+                    "account",
+                    "chaos"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Chaos - DELAY",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"enabled\": true,\n    \"type\": \"DELAY\",\n    \"delayMs\": 5000,\n    \"failTimes\": 0\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:52010/api/visa/account/chaos",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "52010",
+                  "path": [
+                    "api",
+                    "visa",
+                    "account",
+                    "chaos"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Chaos - ERROR",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"enabled\": true,\n    \"type\": \"ERROR\",\n    \"delayMs\": 0,\n    \"failTimes\": 0\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:52010/api/visa/account/chaos",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "52010",
+                  "path": [
+                    "api",
+                    "visa",
+                    "account",
+                    "chaos"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Chaos - ERROR_N_TIMES",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"enabled\": true,\n    \"type\": \"ERROR_N_TIMES\",\n    \"delayMs\": 0,\n    \"failTimes\": 3\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:52010/api/visa/account/chaos",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "52010",
+                  "path": [
+                    "api",
+                    "visa",
+                    "account",
+                    "chaos"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "API Gateway V1 [EXAMEN]",
+          "item": [
+            {
+              "name": "Payment V2",
+              "item": [
+                {
+                  "name": "Check Balance",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Client-Version",
+                        "value": "v2",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"orderId\": \"f14972b8-52b5-4c19-80d8-3f418172ae75\",\n    \"customerId\": 10,\n    \"accountId\": \"999-5555-55555-111\",\n    \"requiredAmount\": 105\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "localhost:50200/api/v2/payments/check-balance",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "50200",
+                      "path": [
+                        "api",
+                        "v2",
+                        "payments",
+                        "check-balance"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "case1",
+              "item": [
+                {
+                  "name": "Payments v1 - Check Balance",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Client-Version",
+                        "value": "v1",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"orderId\": \"f14972b8-52b5-4c19-80d8-3f418172ae75\",\n    \"customerId\": 10,\n    \"cardId\": 555,\n    \"requiredAmount\": 105\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://localhost:50200/api/v1/payments/check-balance",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "50200",
+                      "path": [
+                        "api",
+                        "v1",
+                        "payments",
+                        "check-balance"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Payments v1 (No Eureka) - Check Balance",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Client-Version",
+                        "value": "no-eureka",
+                        "type": "text"
+                      },
+                      {
+                        "key": "X-Client-Version",
+                        "value": "v1",
+                        "type": "text",
+                        "disabled": true
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"orderId\": \"f14972b8-52b5-4c19-80d8-3f418172ae75\",\n    \"customerId\": 10,\n    \"accountId\": \"999-5555-55555-111\",\n    \"requiredAmount\": 105\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://localhost:50200/api/v1/payments/check-balance",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "50200",
+                      "path": [
+                        "api",
+                        "v1",
+                        "payments",
+                        "check-balance"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Payments v2 - Check Balance",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"orderId\": \"f14972b8-52b5-4c19-80d8-3f418172ae75\",\n    \"customerId\": 10,\n    \"cardId\": 555,\n    \"requiredAmount\": 105\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://localhost:50200/api/v2/payments/check-balance",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "50200",
+                      "path": [
+                        "api",
+                        "v2",
+                        "payments",
+                        "check-balance"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Payments V1 - Charge",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"orderId\": \"f14972b8-52b5-4c19-80d8-3f418172ae75\",\n    \"customerId\": 10,\n    \"cardId\": 99999,\n    \"amount\": 200\n}"
+                    },
+                    "url": {
+                      "raw": "http://localhost:50200/api/v1/payments/charge",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "50200",
+                      "path": [
+                        "api",
+                        "v1",
+                        "payments",
+                        "charge"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Reserve [API GATEWAY]",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"orderId\": \"11111112-52b5-4c19-80d8-3f418172ae75\",\n    \"customerId\": 9996,\n    \"items\": [\n      {\n        \"productId\": 956,\n        \"productName\": \"Jabon\",\n        \"quantity\": 10,\n        \"description\": \"Marca Protex\"\n      },\n      {\n        \"productId\": 985,\n        \"productName\": \"Crema Dental\",\n        \"quantity\": 20,\n        \"description\": \"Marca Kolinos\"\n      }\n    ]\n}"
+                    },
+                    "url": {
+                      "raw": "http://localhost:50200/api/v1/inventories/2000/orders/reserve",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "50200",
+                      "path": [
+                        "api",
+                        "v1",
+                        "inventories",
+                        "2000",
+                        "orders",
+                        "reserve"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "case2",
+              "item": [
+                {
+                  "name": "Payments v1 - Check Balance",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Client-Version",
+                        "value": "v1",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"orderId\": \"f14972b8-52b5-4c19-80d8-3f418172ae75\",\n    \"customerId\": 10,\n    \"cardId\": 653265,\n    \"requiredAmount\": 499\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://localhost:50200/mitocode/pagos/check-balance",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "50200",
+                      "path": [
+                        "mitocode",
+                        "pagos",
+                        "check-balance"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Payments v2 - Check Balance",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Client-Version",
+                        "value": "v2",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"orderId\": \"f14972b8-52b5-4c19-80d8-3f418172ae75\",\n    \"customerId\": 10,\n    \"cardId\": 653265,\n    \"requiredAmount\": 499\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://localhost:50200/mitocode/pagos/check-balance",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "50200",
+                      "path": [
+                        "mitocode",
+                        "pagos",
+                        "check-balance"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "case3",
+              "item": [
+                {
+                  "name": "Payments v2 - Check Balance",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Client-Version",
+                        "value": "v2",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"orderId\": \"f14972b8-52b5-4c19-80d8-3f418172ae75\",\n    \"customerId\": 10,\n    \"cardId\": 1111,\n    \"requiredAmount\": 105\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://localhost:50200/mitocode/services/api/v2/payments/check-balance",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "50200",
+                      "path": [
+                        "mitocode",
+                        "services",
+                        "api",
+                        "v2",
+                        "payments",
+                        "check-balance"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Payments v1 - Check Balance",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Client-Version",
+                        "value": "v1",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"orderId\": \"f14972b8-52b5-4c19-80d8-3f418172ae75\",\n    \"customerId\": 10,\n    \"cardId\": 1212,\n    \"requiredAmount\": 105\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://localhost:50200/mitocode/services/check-balance",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "50200",
+                      "path": [
+                        "mitocode",
+                        "services",
+                        "check-balance"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Order Query v1 - Search Order",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "http://localhost:50200/mitocode/search/4fec7ec9-7bf6-4cd8-a526-627de24f046d",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "50200",
+                      "path": [
+                        "mitocode",
+                        "search",
+                        "4fec7ec9-7bf6-4cd8-a526-627de24f046d"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "case4",
+              "item": [
+                {
+                  "name": "Payments v2 - Charge",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Client-Version",
+                        "value": "v2",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"orderId\": \"e9f7637d-bab6-4b72-9b67-3982cc3564ac\",\n    \"customerId\": 10,\n    \"accountId\": \"999-5555-55555-111\",\n    \"amount\": 105\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://localhost:50200/mitocode/services/api/v2/payments/charge",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "50200",
+                      "path": [
+                        "mitocode",
+                        "services",
+                        "api",
+                        "v2",
+                        "payments",
+                        "charge"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Payments v1 - Charge",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Client-Version",
+                        "value": "v1",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"orderId\": \"e9f7637d-bab6-4b72-9b67-3982cc3564ac\",\n    \"customerId\": 10,\n    \"accountId\": \"999-5555-55555-999\",\n    \"amount\": 105\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://localhost:50200/mitocode/pagos/charge1",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "50200",
+                      "path": [
+                        "mitocode",
+                        "pagos",
+                        "charge1"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "case5",
+              "item": [
+                {
+                  "name": "Payments v2 - Charge",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Client-Version",
+                        "value": "v2",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"orderId\": \"e9f7637d-bab6-4b72-9b67-3982cc3564ac\",\n    \"customerId\": 10,\n    \"accountId\": \"999-5555-55555-999\",\n    \"amount\": 105\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://localhost:50200/mitocode/services/charge",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "50200",
+                      "path": [
+                        "mitocode",
+                        "services",
+                        "charge"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Payments v1 - Charge",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Client-Version",
+                        "value": "v1",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"orderId\": \"e9f7637d-bab6-4b72-9b67-3982cc3564ac\",\n    \"customerId\": 10,\n    \"cardId\": 55,\n    \"amount\": 105\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://localhost:50200/mitocode/pagos/charge",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "50200",
+                      "path": [
+                        "mitocode",
+                        "pagos",
+                        "charge"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "case6",
+              "item": [
+                {
+                  "name": "Case1",
+                  "item": [
+                    {
+                      "name": "Payments v1 - Check Balance",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "X-Client-Version",
+                            "value": "v1",
+                            "type": "text"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"orderId\": \"f14972b8-52b5-4c19-80d8-3f418172ae75\",\n    \"customerId\": 10,\n    \"cardId\": 2222,\n    \"requiredAmount\": 105\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "http://localhost:50200/api/v1/payments/check-balance",
+                          "protocol": "http",
+                          "host": [
+                            "localhost"
+                          ],
+                          "port": "50200",
+                          "path": [
+                            "api",
+                            "v1",
+                            "payments",
+                            "check-balance"
+                          ]
+                        }
+                      },
+                      "response": []
+                    },
+                    {
+                      "name": "Payments v2 - Check Balance",
+                      "request": {
+                        "method": "POST",
+                        "header": [],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"orderId\": \"f14972b8-52b5-4c19-80d8-3f418172ae75\",\n    \"customerId\": 10,\n    \"accountId\": \"999-5555-55555-111\",\n    \"requiredAmount\": 105\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "http://localhost:50200/api/v2/payments/check-balance",
+                          "protocol": "http",
+                          "host": [
+                            "localhost"
+                          ],
+                          "port": "50200",
+                          "path": [
+                            "api",
+                            "v2",
+                            "payments",
+                            "check-balance"
+                          ]
+                        }
+                      },
+                      "response": []
+                    }
+                  ]
+                },
+                {
+                  "name": "case2",
+                  "item": [
+                    {
+                      "name": "Payments v1 - Check Balance",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "X-Client-Version",
+                            "value": "v1",
+                            "type": "text"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"orderId\": \"f14972b8-52b5-4c19-80d8-3f418172ae75\",\n    \"customerId\": 10,\n    \"accountId\": \"999-5555-55555-111\",\n    \"requiredAmount\": 105\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "http://localhost:50200/mitocode/pagos/check-balance",
+                          "protocol": "http",
+                          "host": [
+                            "localhost"
+                          ],
+                          "port": "50200",
+                          "path": [
+                            "mitocode",
+                            "pagos",
+                            "check-balance"
+                          ]
+                        }
+                      },
+                      "response": []
+                    },
+                    {
+                      "name": "Payments v2 - Check Balance",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "X-Client-Version",
+                            "value": "v2",
+                            "type": "text"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"orderId\": \"f14972b8-52b5-4c19-80d8-3f418172ae75\",\n    \"customerId\": 10,\n    \"accountId\": \"999-5555-55555-111\",\n    \"requiredAmount\": 105\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "http://localhost:50200/mitocode/pagos/check-balance",
+                          "protocol": "http",
+                          "host": [
+                            "localhost"
+                          ],
+                          "port": "50200",
+                          "path": [
+                            "mitocode",
+                            "pagos",
+                            "check-balance"
+                          ]
+                        }
+                      },
+                      "response": []
+                    }
+                  ]
+                },
+                {
+                  "name": "case4",
+                  "item": [
+                    {
+                      "name": "Payments v2 - Charge",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "X-Client-Version",
+                            "value": "v2",
+                            "type": "text"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"orderId\": \"e9f7637d-bab6-4b72-9b67-3982cc3564ac\",\n    \"customerId\": 10,\n    \"accountId\": \"999-5555-55555-111\",\n    \"amount\": 105\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "http://localhost:50200/mitocode/services/api/v2/payments/charge",
+                          "protocol": "http",
+                          "host": [
+                            "localhost"
+                          ],
+                          "port": "50200",
+                          "path": [
+                            "mitocode",
+                            "services",
+                            "api",
+                            "v2",
+                            "payments",
+                            "charge"
+                          ]
+                        }
+                      },
+                      "response": []
+                    },
+                    {
+                      "name": "Payments v1 - Charge",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "X-Client-Version",
+                            "value": "v1",
+                            "type": "text"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"orderId\": \"e9f7637d-bab6-4b72-9b67-3982cc3564ac\",\n    \"customerId\": 10,\n    \"accountId\": \"999-5555-55555-111\",\n    \"amount\": 105\n}",
+                          "options": {
+                            "raw": {
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "http://localhost:50200/mitocode/services/api/v1/payments/charge",
+                          "protocol": "http",
+                          "host": [
+                            "localhost"
+                          ],
+                          "port": "50200",
+                          "path": [
+                            "mitocode",
+                            "services",
+                            "api",
+                            "v1",
+                            "payments",
+                            "charge"
+                          ]
+                        }
+                      },
+                      "response": []
+                    }
+                  ]
+                }
+              ],
+              "description": "Usar los ejemplos del  \nCase1  \nCase2  \nCase4"
+            },
+            {
+              "name": "case7",
+              "item": [
+                {
+                  "name": "Payments v2 - Check Balance",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Client-Version",
+                        "value": "v2",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer tokende_andres_gonzales",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"orderId\": \"f14972b8-52b5-4c19-80d8-3f418172ae75\",\n    \"customerId\": 10,\n    \"accountId\": \"999-5555-55555-111\",\n    \"requiredAmount\": 105\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://localhost:50200/api/v2/payments/check-balance",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "50200",
+                      "path": [
+                        "api",
+                        "v2",
+                        "payments",
+                        "check-balance"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Payments v1 - Check Balance",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Client-Version",
+                        "value": "v1",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer wqeqwewqeq",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"orderId\": \"f14972b8-52b5-4c19-80d8-3f418172ae75\",\n    \"customerId\": 10,\n    \"cardId\": 653265,\n    \"requiredAmount\": 499\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://localhost:50200/api/v1/payments/check-balance",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "50200",
+                      "path": [
+                        "api",
+                        "v1",
+                        "payments",
+                        "check-balance"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Payments v1 - Check Balance [MIRKO]",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "X-Client-Version",
+                        "value": "v1",
+                        "type": "text"
+                      },
+                      {
+                        "key": "Authorization",
+                        "value": "Bearer wqeqwewqeq",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"orderId\": \"f14972b8-52b5-4c19-80d8-3f418172ae75\",\n    \"customerId\": 10,\n    \"cardId\": 653265,\n    \"requiredAmount\": 499\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://localhost:50200/mitocode/services/check-balance",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "50200",
+                      "path": [
+                        "mitocode",
+                        "services",
+                        "check-balance"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Validate Token [MIRKO]",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"token\": \"{{accessToken}}\"\n  }"
+                    },
+                    "url": {
+                      "raw": "http://localhost:50300/api/v1/auth/validate/ABC",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "50300",
+                      "path": [
+                        "api",
+                        "v1",
+                        "auth",
+                        "validate",
+                        "ABC"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "DEV",
+              "item": [
+                {
+                  "name": "Get Order By Id - API Gateway",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Operation-Type",
+                        "value": "Query",
+                        "type": "text"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"customer\": {\n        \"id\": 9996,\n        \"name\": \"Andres Gonzales\"\n    },\n    \"restaurant\": {\n        \"id\": 888,\n        \"name\": \"Burger Big Boy\"\n    },\n    \"total\": 98.36\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://localhost:50200/api/mitocode/orders/8a7e3a0e-7216-426b-b103-9c9a06fd072a",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "50200",
+                      "path": [
+                        "api",
+                        "mitocode",
+                        "orders",
+                        "8a7e3a0e-7216-426b-b103-9c9a06fd072a"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Create Order Orchestrator - API Gateway",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"customer\": {\n        \"id\": 9996,\n        \"name\": \"Andres Gonzales\"\n    },\n    \"restaurant\": {\n        \"id\": 1000,\n        \"name\": \"Burger Big Boy\"\n    },\n    \"account\": {\n        \"accountId\": \"999-5555-55555-111\"\n    },\n    \"items\": [\n        {\n            \"product\": {\n                \"id\": 956,\n                \"name\": \"Pizza Pepperoni\"\n            },\n            \"quantity\": 2,\n            \"description\": \"Extra queso\"\n        },\n        {\n            \"product\": {\n                \"id\": 985,\n                \"name\": \"Coca Cola\"\n            },\n            \"quantity\": 1,\n            \"description\": \"Sin hielo\"\n        }\n    ],\n    \"deliveryAddress\": {\n        \"address\": \"Calle Los Angeles 706, Departamento 125\",\n        \"latitude\": 9636666,\n        \"longitude\": 698897,\n        \"reference\": \"Al frente del parque de las leyendas puerta 5\"\n    },\n    \"deliveryPerson\": {\n        \"id\": 1000007\n    },\n    \"total\": 98.36\n}",
+                      "options": {
+                        "raw": {
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "http://localhost:50200/api/mitocode/orders",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "50200",
+                      "path": [
+                        "api",
+                        "mitocode",
+                        "orders"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Start Delivery - API Gateway",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "http://localhost:50200/api/mitocode/orders/8a7e3a0e-7216-426b-b103-9c9a06fd072a/delivery/start",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "50200",
+                      "path": [
+                        "api",
+                        "mitocode",
+                        "orders",
+                        "8a7e3a0e-7216-426b-b103-9c9a06fd072a",
+                        "delivery",
+                        "start"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Complete Delivery - API Gateway",
+                  "request": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                      "raw": "http://localhost:50200/api/mitocode/orders/8a7e3a0e-7216-426b-b103-9c9a06fd072a/delivery/complete",
+                      "protocol": "http",
+                      "host": [
+                        "localhost"
+                      ],
+                      "port": "50200",
+                      "path": [
+                        "api",
+                        "mitocode",
+                        "orders",
+                        "8a7e3a0e-7216-426b-b103-9c9a06fd072a",
+                        "delivery",
+                        "complete"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "Check Balance",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"orderId\": \"f14972b8-52b5-4c19-80d8-3f418172ae75\",\n    \"customerId\": 10,\n    \"accountId\": \"999-5555-55555-999\",\n    \"requiredAmount\": 105\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "localhost:50200/mitocode/service/api/v1check-balance",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50200",
+                  "path": [
+                    "mitocode",
+                    "service",
+                    "api",
+                    "v1check-balance"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Api Auth Service V1 [EXAMEN]",
+          "item": [
+            {
+              "name": "Register User (admin)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"username\": \"admin\",\n    \"password\": \"admin\",\n    \"roles\": [\"ROLE_ADMIN\"]\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:50300/api/v1/auth/register",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50300",
+                  "path": [
+                    "api",
+                    "v1",
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Register User (user)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"username\": \"user\",\n    \"password\": \"user\",\n    \"roles\": [\"ROLE_USER\"]\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:50300/api/v1/auth/register",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50300",
+                  "path": [
+                    "api",
+                    "v1",
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Register User (mirko)",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"username\": \"mirko\",\n    \"password\": \"mirko123\",\n    \"roles\": [\"ROLE_MIRKO\"]\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:50300/api/v1/auth/register",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50300",
+                  "path": [
+                    "api",
+                    "v1",
+                    "auth",
+                    "register"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Login User (admin)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "// Parsear la respuesta JSON",
+                      "let jsonData = pm.response.json();",
+                      "",
+                      "// Guardar el access token y refresh token en variables de entorno",
+                      "pm.environment.set(\"accessToken\", jsonData.accessToken);",
+                      "pm.environment.set(\"refreshToken\", jsonData.refreshToken);",
+                      "",
+                      "// (Opcional) guardar el tiempo de expiración si lo usas después",
+                      "pm.environment.set(\"expiresIn\", jsonData.expiresIn);",
+                      "",
+                      "// Mostrar en consola para verificación",
+                      "console.log(\"Access Token guardado:\", jsonData.accessToken);",
+                      "console.log(\"Refresh Token guardado:\", jsonData.refreshToken);",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"username\": \"admin\",\n    \"password\": \"admin\"\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:50300/api/v1/auth/login",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50300",
+                  "path": [
+                    "api",
+                    "v1",
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Login User (user)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "// Parsear la respuesta JSON",
+                      "let jsonData = pm.response.json();",
+                      "",
+                      "// Guardar el access token y refresh token en variables de entorno",
+                      "pm.environment.set(\"accessToken\", jsonData.accessToken);",
+                      "pm.environment.set(\"refreshToken\", jsonData.refreshToken);",
+                      "",
+                      "// (Opcional) guardar el tiempo de expiración si lo usas después",
+                      "pm.environment.set(\"expiresIn\", jsonData.expiresIn);",
+                      "",
+                      "// Mostrar en consola para verificación",
+                      "console.log(\"Access Token guardado:\", jsonData.accessToken);",
+                      "console.log(\"Refresh Token guardado:\", jsonData.refreshToken);",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"username\": \"user\",\n    \"password\": \"user\"\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:50300/api/v1/auth/login",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50300",
+                  "path": [
+                    "api",
+                    "v1",
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Login User (mirko)",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "// Parsear la respuesta JSON",
+                      "let jsonData = pm.response.json();",
+                      "",
+                      "// Guardar el access token y refresh token en variables de entorno",
+                      "pm.environment.set(\"accessToken\", jsonData.accessToken);",
+                      "pm.environment.set(\"refreshToken\", jsonData.refreshToken);",
+                      "",
+                      "// (Opcional) guardar el tiempo de expiración si lo usas después",
+                      "pm.environment.set(\"expiresIn\", jsonData.expiresIn);",
+                      "",
+                      "// Mostrar en consola para verificación",
+                      "console.log(\"Access Token guardado:\", jsonData.accessToken);",
+                      "console.log(\"Refresh Token guardado:\", jsonData.refreshToken);",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"username\": \"mirko\",\n    \"password\": \"mirko123\"\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:50300/api/v1/auth/login",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50300",
+                  "path": [
+                    "api",
+                    "v1",
+                    "auth",
+                    "login"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Refresh Token",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "// Parsear la respuesta JSON",
+                      "let jsonData = pm.response.json();",
+                      "",
+                      "// Guardar el access token y refresh token en variables de entorno",
+                      "pm.environment.set(\"accessToken\", jsonData.accessToken);",
+                      "pm.environment.set(\"refreshToken\", jsonData.refreshToken);",
+                      "",
+                      "// (Opcional) guardar el tiempo de expiración si lo usas después",
+                      "pm.environment.set(\"expiresIn\", jsonData.expiresIn);",
+                      "",
+                      "// Mostrar en consola para verificación",
+                      "console.log(\"Access Token guardado:\", jsonData.accessToken);",
+                      "console.log(\"Refresh Token guardado:\", jsonData.refreshToken);",
+                      ""
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"refreshToken\": \"{{refreshToken}}\"\n  }"
+                },
+                "url": {
+                  "raw": "http://localhost:50300/api/v1/auth/refresh",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50300",
+                  "path": [
+                    "api",
+                    "v1",
+                    "auth",
+                    "refresh"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Validate Token",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n    \"token\": \"{{accessToken}}\"\n}"
+                },
+                "url": {
+                  "raw": "http://localhost:50300/api/v1/auth/validate",
+                  "protocol": "http",
+                  "host": [
+                    "localhost"
+                  ],
+                  "port": "50300",
+                  "path": [
+                    "api",
+                    "v1",
+                    "auth",
+                    "validate"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
